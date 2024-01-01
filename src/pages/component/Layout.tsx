@@ -1,16 +1,14 @@
 import Link from "next/link";
 import style from "@/styles/styles.module.scss";
+import { FaHome } from "react-icons/fa";
 
-type headerProps = {
-  text: string;
-  children?: React.ReactNode;
-};
-
-export default function Layout({ children, text }: headerProps) {
+export default function Layout({ children }: any) {
   return (
     <>
       <div className={style.header}>
-        <Link href={"/"}>{text}</Link>
+        <Link href={"/"}>
+          <FaHome />
+        </Link>
       </div>
       <main>{children}</main>
     </>

@@ -5,13 +5,20 @@
   font-size: 1.8rem;
   background: #333;
   a {
-    color: #fff;
+    color: #eee;
     text-decoration: none;
-    padding: 0.5rem 1rem;
     transition: 150ms ease-in-out;
+    padding: 0.4rem;
+    border-radius: 5px;
+    svg {
+      display: inline-block;
+      width: 2.4rem;
+      height: 2.4rem;
+      vertical-align: middle;
+    }
     &:hover {
-      color: #f4f4f4;
-      background: #3e3e3e;
+      color: #eee;
+      background: #525252;
     }
   }
 }
