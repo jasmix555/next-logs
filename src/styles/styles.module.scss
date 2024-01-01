@@ -1,0 +1,17 @@
+.header {
+  position: relative;
+  width: 100%;
+  padding: 1rem 3rem;
+  font-size: 1.8rem;
+  background: #333;
+  a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: 150ms ease-in-out;
+    &:hover {
+      color: #f4f4f4;
+      background: #3e3e3e;
+    }
+  }
+}

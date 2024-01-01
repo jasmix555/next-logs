@@ -40,6 +40,11 @@ input {
   outline: none;
 }
 
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
 .slide-in {
   position: absolute;
   top: 0;
