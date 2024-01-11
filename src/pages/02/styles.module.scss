@@ -1,0 +1,32 @@
+.tabWrap {
+  height: 30rem;
+  width: 30rem;
+  border: 1px solid #000;
+  font-size: 1.6rem;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 4px 4px 0px rgb(30, 30, 30);
+}
+
+.tabBtns {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  button {
+    font-size: 1.4rem;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 0.4rem 2rem;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
+    &:hover {
+      background-color: #8a8a8a;
+      color: #fff;
+    }
+    &.active {
+      background-color: #333;
+      color: #fff;
+    }
+  }
+}

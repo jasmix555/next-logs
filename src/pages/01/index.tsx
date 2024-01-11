@@ -14,7 +14,7 @@ export default function Page01() {
   });
 
   return (
-    <Layout text={"Back to Home Page"}>
+    <Layout>
       <h1>Randomizer</h1>
       <div className={style.wrapper}>
         <div className={style.functions}>

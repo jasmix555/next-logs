@@ -10,7 +10,7 @@ export default function Layout({ children }: any) {
           <FaHome />
         </Link>
       </div>
-      <main>{children}</main>
+      <main className={style.wrapper}>{children}</main>
     </>
   );
 }
