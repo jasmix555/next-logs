@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Layout from "../component/Layout";
+import Layout from "../../component/Layout";
 import TabOne from "./component/TabOne";
 import TabTwo from "./component/TabTwo";
 import style from "./styles.module.scss";
