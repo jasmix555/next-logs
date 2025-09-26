@@ -55,3 +55,33 @@
     color: #eee;  
   }
 }
+
+
+.movieContainer{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.movieCard {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #fafafa;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.movieImage {
+  width: 24rem;
+  border-radius: 8px;
+}
+
+.movieTitle {
+  font-size: 1.8rem;
+  margin: 0.8rem 0;
+}

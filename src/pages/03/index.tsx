@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Layout from "@/component/Layout";
+import style from "@/styles/styles.module.scss";
 
 const OMDB_API_KEY = "236ed38c";
 const TOP_20_IMDB_IDS = [
@@ -60,23 +62,25 @@ export default function TopMoviesPage() {
         fetchMovies();
     }, []);
 
-    if (loading) return <div className="flex ">Loading top 20 movies...</div>;
-    if (error) return <div>Error: {error}</div>;
+    if (loading) return <Layout><h1 className="">Loading top 20 movies...</h1></Layout>;
+    if (error) return <Layout><h1 className="">Error: {error}</h1></Layout>;
 
     return (
-        <div style={{ maxWidth: 1200, margin: "2rem auto", padding: "1rem" }}>
+        <Layout>
             <h1>Top 20 Movies (IMDB)</h1>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "2rem" }}>
+            <div className={style.movieContainer}>
                 {movies.map((movie) => (
-                    <div key={movie.imdbID} style={{ border: "1px solid #eee", borderRadius: 8, padding: "1rem", background: "#fafafa" }}>
-                        <Image src={movie.Poster} alt={movie.Title} width={200} height={300} style={{ borderRadius: 8 }} />
-                        <h2 style={{ fontSize: "1.2rem", margin: "0.5rem 0" }}>{movie.Title}</h2>
-                        <p><strong>Genre:</strong> {movie.Genre}</p>
-                        <p><strong>Runtime:</strong> {movie.Runtime}</p>
-                        <p><strong>Cast:</strong> {movie.Actors}</p>
+                    <div key={movie.imdbID} className={style.movieCard}>
+                        <Image src={movie.Poster} alt={movie.Title} width={200} height={300} className={style.movieImage} />
+                        <h2 className={style.movieTitle}>{movie.Title}</h2>
+                        <div className={style.movieDetails}>
+                            <p><strong>Genre:</strong> {movie.Genre}</p>
+                            <p><strong>Runtime:</strong> {movie.Runtime}</p>
+                            <p><strong>Cast:</strong> {movie.Actors}</p>
+                        </div>
                     </div>
                 ))}
             </div>
-        </div>
+        </Layout>
     );
 }
