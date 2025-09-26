@@ -42,3 +42,16 @@
     }
   }
 }
+
+.button{
+  cursor: pointer;
+  border: 1px solid #333;
+  padding: 0.8rem 1.6rem;
+  border-radius: 5px;
+  background: #fff;
+  transition: 150ms ease-in-out;
+  &:hover {
+    background: #333;
+    color: #eee;  
+  }
+}

@@ -9,6 +9,7 @@ export default function Home() {
       <div className={style.container}>
         <Link href="/01">Roulette Page</Link>
         <Link href="/02">Change tabs Page</Link>
+        <Link href="/03">New Page</Link>
       </div>
     </Layout>
   );
