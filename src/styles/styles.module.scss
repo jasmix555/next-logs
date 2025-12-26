@@ -1,6 +1,13 @@
+@use "@/styles/mixin" as *;
+
+$header-height: min(getVw(50, 1200), 50px);
+
 .header {
   position: relative;
   width: 100%;
+  height: $header-height;
+  display: flex;
+  align-items: center;
   padding: 1rem 3rem;
   font-size: 1.8rem;
   background: #333;
@@ -24,7 +31,9 @@
 }
 
 .wrapper {
+  background: #f0f0f0;
   padding: 1rem;
+  min-height: calc(100vh - $header-height);
 }
 
 .container {

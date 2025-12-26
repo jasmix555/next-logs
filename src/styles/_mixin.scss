@@ -1,0 +1,80 @@
+@charset "UTF-8";
+@use "sass:math";
+@use "sass:map";
+//==============================================================================
+//  関数定義
+//==============================================================================
+
+// vw計算 ----------------------------------------------------------------------
+@function getVw($mySizePx, $viewport:780) {
+	$rate: math.div(100, $viewport);
+	@return $rate * $mySizePx * 1vw;
+}
+
+// 比率を計算する(%) -----------------------------------------------------------
+@function getRatio($childPx, $parentPx) {
+	@return math.div($childPx, $parentPx) * 100%;
+}
+
+// フォントサイズ：px → vw ----------------------------------------------------
+@mixin fontSizeVw($fontSizePx, $viewport:780) {
+	font-size: $fontSizePx * 1px;
+	font-size: getVw($fontSizePx, $viewport);
+}
+
+// フォントサイズ：px→rem -----------------------------------------------------
+@mixin fontSizeRem($size, $base: 16) {
+	font-size: $size + px;
+	font-size: math.div($size, $base) + rem;
+}
+
+// line高さ：px→比率 ----------------------------------------------------------
+@mixin lineHeight($fontSizePx, $lineHeightPx) {
+	line-height: math.div($lineHeightPx, $fontSizePx);
+}
+
+//==============================================================================
+// メディアクエリ
+//==============================================================================
+$mq-breakpoints: ('small': 320px,
+	'medium': 780px,
+	'large' : 1200px,
+	'xlarge': 1920px,
+);
+
+@mixin mq($breakpoint: medium) {
+	@media screen and (max-width: #{map.get($mq-breakpoints, $breakpoint)}) {
+		@content;
+	}
+}
+
+$mq-breakpoints2: ('small': 321px,
+	'medium': 781px,
+	'large' : 1201px,
+	'xlarge': 1921px,
+);
+
+@mixin mqFrom($breakpoint: medium) {
+	@media screen and (min-width: #{map.get($mq-breakpoints2, $breakpoint)}) {
+		@content;
+	}
+}
+
+@mixin navTriangle($color, $width, $height, $position) {
+	&::after {
+		content: "";
+		position: absolute;
+		#{$position}: -#{$height};
+		left: 50%;
+		transform: translateX(-50%);
+		width: 0;
+		height: 0;
+		border-left: math.div($width, 2) solid transparent;
+		border-right: math.div($width, 2) solid transparent;
+		@if $position == bottom {
+			border-top: $height solid $color;
+		} @else if $position == top {
+			border-bottom: $height solid $color;
+		}
+	}
+}

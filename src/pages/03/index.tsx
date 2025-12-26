@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Layout from "@/component/Layout";
-import style from "@/styles/styles.module.scss";
+import style from "./style/index.module.scss";
 
 const OMDB_API_KEY = "236ed38c";
 const TOP_20_IMDB_IDS = [
@@ -34,6 +34,7 @@ interface Movie {
     Runtime: string;
     Actors: string;
     Poster: string;
+    Year: string;
 }
 
 export default function TopMoviesPage() {
@@ -74,9 +75,10 @@ export default function TopMoviesPage() {
                         <Image src={movie.Poster} alt={movie.Title} width={200} height={300} className={style.movieImage} />
                         <h2 className={style.movieTitle}>{movie.Title}</h2>
                         <div className={style.movieDetails}>
-                            <p><strong>Genre:</strong> {movie.Genre}</p>
-                            <p><strong>Runtime:</strong> {movie.Runtime}</p>
-                            <p><strong>Cast:</strong> {movie.Actors}</p>
+                            <p className={style.movieGenre}><strong>Genre:</strong> {movie.Genre}</p>
+                            <p className={style.movieRuntime}><strong>Runtime:</strong> {movie.Runtime}</p>
+                            <p className={style.movieCast}><strong>Cast:</strong> {movie.Actors}</p>
+                            <p className={style.movieYear}><strong>Year:</strong> {movie.Year}</p>
                         </div>
                     </div>
                 ))}
